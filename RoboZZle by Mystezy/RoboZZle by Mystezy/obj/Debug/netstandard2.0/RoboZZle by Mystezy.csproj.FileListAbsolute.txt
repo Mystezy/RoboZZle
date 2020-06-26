@@ -1,0 +1,15 @@
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\bin\Debug\netstandard2.0\RoboZZle by Mystezy.deps.json
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\bin\Debug\netstandard2.0\RoboZZle by Mystezy.dll
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\bin\Debug\netstandard2.0\ref\RoboZZle by Mystezy.dll
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\bin\Debug\netstandard2.0\RoboZZle by Mystezy.pdb
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\RoboZZle by Mystezy.AssemblyInfoInputs.cache
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\RoboZZle by Mystezy.AssemblyInfo.cs
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\RoboZZle by Mystezy.csproj.CoreCompileInputs.cache
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\RoboZZle by Mystezy.dll
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\ref\RoboZZle by Mystezy.dll
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\RoboZZle by Mystezy.pdb
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\MapPage.xaml.g.cs
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy\obj\Debug\netstandard2.0\RoboZZle by Mystezy.csprojAssemblyReference.cache

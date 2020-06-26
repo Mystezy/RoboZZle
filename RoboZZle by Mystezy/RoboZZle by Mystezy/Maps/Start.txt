@@ -1,0 +1,18 @@
+﻿G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+G_1 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0 G_0
+1 1
+Right
+3 3 3
+Up_Red Null Right_Green
+Up_Red Null Right_Green
+Up_Red Null Right_Green
