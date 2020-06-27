@@ -476,3 +476,8 @@ C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by 
 C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\res\drawable\cube.png
 C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\res\drawable\question.png
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\res\drawable\droid.png
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\res\drawable\android.png
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\res\drawable\zvizda.png
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\res\drawable\start.png
+C:\Users\pasha\source\repos\RoboZZle by Mystezy\RoboZZle by Mystezy\RoboZZle by Mystezy.Android\obj\Debug\90\res\drawable\stop.png

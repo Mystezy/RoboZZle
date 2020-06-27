@@ -9,7 +9,7 @@ using System.IO;
 
 namespace RoboZZle_by_Mystezy.Classы
 {
-    class Game
+    public class Game
     {
         Position StartPos;
 
@@ -243,7 +243,7 @@ namespace RoboZZle_by_Mystezy.Classы
                 for (int i = 0; i < functions; i++)
                     Max[i] = int.Parse(MAS[i]);
 
-                for (int i = 0; i < functions; i++)
+                /*for (int i = 0; i < functions; i++)
                 {
                     line = reader.ReadLine();
                     MAS = line.Split();
@@ -305,8 +305,7 @@ namespace RoboZZle_by_Mystezy.Classы
                             }
                         }
                     }
-                }
-
+                }*/
             }
 
             Action NEW = new Action(Command.F1, Color.Default, 0);
