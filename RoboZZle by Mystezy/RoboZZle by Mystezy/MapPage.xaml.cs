@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using RoboZZle_by_Mystezy.Classы;
 using System.Drawing;
 using System.Xml.Schema;
+using System.Threading;
 
 namespace RoboZZle_by_Mystezy
 {
@@ -16,8 +17,10 @@ namespace RoboZZle_by_Mystezy
     public partial class MapPage : ContentPage
     {
         public Grid grid;
+        public Grid gred;
         public Game zxc;
         public Button StartB;
+        public Image droid;
         public Button[][] FuncB = new Button[5][];
         public Label[][] FuncL = new Label[5][];
         public string F1 = "";
@@ -33,7 +36,7 @@ namespace RoboZZle_by_Mystezy
             PanelTitle.Text = str;
             zxc = new Game(str);
 
-            grid = new Grid
+            gred = new Grid
             {
                 ColumnDefinitions =
                 {
@@ -91,34 +94,34 @@ namespace RoboZZle_by_Mystezy
             };
             StartB.Clicked += StartB_Clicked;
 
-            Button StopB = new Button
+            /*Button StopB = new Button
             {
                 BackgroundColor = Xamarin.Forms.Color.Transparent,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HeightRequest = Application.Current.MainPage.Width / 12,
             };
             StopB.Clicked += StopB_Clicked;
+            gred.Children.Add(Stop, 9, 12);
+            gred.Children.Add(StopB, 9, 12);*/
 
-            grid.Children.Add(Start, 6, 12);
-            grid.Children.Add(Stop, 9, 12);
-            grid.Children.Add(StartB, 6, 12);
-            grid.Children.Add(StopB, 9, 12);
+            gred.Children.Add(Start, 6, 12);
+            gred.Children.Add(StartB, 6, 12);
 
             for (int i = 0; i < 12; i++)
                 for (int j = 0; j < 16; j++)
                 {
                     if (zxc.DefaultField[i][j] == Classы.Color.Blue)
-                        grid.Children.Add(new BoxView
+                        gred.Children.Add(new BoxView
                         {
                             BackgroundColor = Xamarin.Forms.Color.Blue,
                         }, j, i);
                     else if (zxc.DefaultField[i][j] == Classы.Color.Red)
-                        grid.Children.Add(new BoxView
+                        gred.Children.Add(new BoxView
                         {
                             BackgroundColor = Xamarin.Forms.Color.Red,
                         }, j, i);
                     else if (zxc.DefaultField[i][j] == Classы.Color.Green)
-                        grid.Children.Add(new BoxView
+                        gred.Children.Add(new BoxView
                         {
                             BackgroundColor = Xamarin.Forms.Color.Green,
                         }, j, i);
@@ -126,12 +129,12 @@ namespace RoboZZle_by_Mystezy
 
             foreach (var el in zxc.Stars)
                 if (el.Value == true)
-                    grid.Children.Add(new Image
+                    gred.Children.Add(new Image
                     {
                         Source = "Zvizda.png",
                     }, el.Key.X, el.Key.Y);
 
-            var droid = new Image
+            droid = new Image
             {
                 Source = "android.png",
             };
@@ -149,9 +152,9 @@ namespace RoboZZle_by_Mystezy
                     break;
             }
 
-            grid.Children.Add(droid, zxc.NowPos.X, zxc.NowPos.Y);
+            gred.Children.Add(droid, zxc.NowPos.X, zxc.NowPos.Y);
 
-            GameGrid.Children.Add(grid, 0, 0);
+            GameGrid.Children.Add(gred, 0, 0);
 
 
             grid = new Grid
@@ -261,9 +264,6 @@ namespace RoboZZle_by_Mystezy
                     if (int.Parse(mass[0][1].ToString()) > zxc.functions)
                         return false;
                 }
-                /*else if (mass[0][0] != 'U' && mass[0][0] != 'R' && mass[0][0] != 'L')
-                    return false;
-                else if */
 
             }
             return true;
@@ -274,8 +274,9 @@ namespace RoboZZle_by_Mystezy
             DisplayAlert("Правила", "Игровое поле - прямоугольник 16х12. Каждая клетка может быть раскрашена в 1 из 3х цветов: красный, синий или зелёный. В некоторых клетках лежат звёзды. Цель вашей программы-робота собрать все эти звёзды, не выходя за пределы окрашенных клеток.\n\nВы контроллируете робота с помощью программы. В программе разрешено до 5 функций в зависимости от задачи. В каждой функции может быть до 10 инструкций для робота. Максимальное количество операций для каждой функции указано в заголовке формы ввода. Доступные инструкции: Правый(Right) и левый(Left) поворот, шаг вперёд(Up) и вызовы функций(F1, F2, F3, F4, F5). Инструкции указываются в формате \"NameCom\"_\"NameCol\", где NameCom - первая буквы исполняемой команды(Up/Right/Left) или наименование функции(F1, F2, F3, F4, F5), NameCol - первая буква цвета команды(Default, Green, Blue, Red).", "OK");
         }
 
-        private void StartB_Clicked(object sender, EventArgs args)
+        private async void StartB_Clicked(object sender, EventArgs args)
         {
+            StartB.IsEnabled = false;
             for (int i = 0; i < zxc.functions; i++)
             {
                 zxc.Actions[i] = new Classы.Action[zxc.Max[i]];
@@ -329,13 +330,69 @@ namespace RoboZZle_by_Mystezy
             while(true)
             {
                 zxc.Execute();
+                if (zxc.CheckLose())
+                {
+                    zxc.NewGame();
+                    break;
+                }
+                else if (zxc.ActionQueue.Count == 0)
+                {
+                    gred.Children.Remove(droid);
+                    switch (zxc.NowDir)
+                    {
+                        case Direction.Right:
+                            droid.Rotation = 90;
+                            break;
+                        case Direction.Down:
+                            droid.Rotation = 180;
+                            break;
+                        case Direction.Left:
+                            droid.Rotation = 270;
+                            break;
+                    }
 
+                    gred.Children.Add(droid, zxc.NowPos.X, zxc.NowPos.Y);
+                    await Task.Delay(1000);
+                    GameGrid.Children.Add(gred);
+                    zxc.NewGame();
+                    gred.Children.Remove(droid);
+                    switch (zxc.NowDir)
+                    {
+                        case Direction.Right:
+                            droid.Rotation = 90;
+                            break;
+                        case Direction.Down:
+                            droid.Rotation = 180;
+                            break;
+                        case Direction.Left:
+                            droid.Rotation = 270;
+                            break;
+                    }
+                    gred.Children.Add(droid, zxc.NowPos.X, zxc.NowPos.Y);
+                    await DisplayAlert(null, "инструкции закончились, попробуйте заного", "OK");
+                    break;
+                }
+
+                gred.Children.Remove(droid);
+                switch (zxc.NowDir)
+                {
+                    case Direction.Right:
+                        droid.Rotation = 90;
+                        break;
+                    case Direction.Down:
+                        droid.Rotation = 180;
+                        break;
+                    case Direction.Left:
+                        droid.Rotation = 270;
+                        break;
+                }
+
+
+                gred.Children.Add(droid, zxc.NowPos.X, zxc.NowPos.Y);
+                await Task.Delay(1000);
+                GameGrid.Children.Add(gred);
             }
-        }
-
-        private void StopB_Clicked(object sender, EventArgs args)
-        {
-
+            StartB.IsEnabled = true;
         }
 
         public void FPaint(string str, int i)

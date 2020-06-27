@@ -33,10 +33,12 @@ namespace RoboZZle_by_Mystezy.Classы
 
         bool Lose;
 
-        public void Execute(List<Action> Act)
+        public bool stop;
+
+        public void Execute()
         {
-            if (DefaultField[NowPos.Y][NowPos.X] == Act[0].color || Act[0].color == Color.Default)
-                switch (Act[0].command)
+            if (DefaultField[NowPos.Y][NowPos.X] == ActionQueue[0].color || ActionQueue[0].color == Color.Default)
+                switch (ActionQueue[0].command)
                 {
                     case Command.Default:
                         break;
@@ -66,13 +68,13 @@ namespace RoboZZle_by_Mystezy.Classы
                         break;
                     case Command.Up:
                         if (NowDir == Direction.Up)
-                            StartPos.Y--;
+                            NowPos.Y--;
                         else if (NowDir == Direction.Right)
-                            StartPos.X++;
+                            NowPos.X++;
                         else if (NowDir == Direction.Down)
-                            StartPos.Y++;
+                            NowPos.Y++;
                         else
-                            StartPos.X--;
+                            NowPos.X--;
 
                         if (StartPos.X > 15 || StartPos.X < 0 || StartPos.Y > 11 || StartPos.Y < 0)
                             Lose = true;
@@ -82,77 +84,32 @@ namespace RoboZZle_by_Mystezy.Classы
                         ActionQueue.RemoveAt(0);
                         break;
                     case Command.F1:
-                        if (NowDir == Direction.Up)
-                            NowDir = Direction.Left;
-                        else if (NowDir == Direction.Right)
-                            NowDir = Direction.Up;
-                        else if (NowDir == Direction.Down)
-                            NowDir = Direction.Right;
-                        else
-                            NowDir = Direction.Down;
-
                         ActionQueue.RemoveAt(0);
-                        for (int i = Max[0] - 1; i >= 0; i++)
+                        for (int i = Max[0] - 1; i >= 0; i--)
                             ActionQueue.Insert(0, Actions[0][i]);
                         break;
                     case Command.F2:
-                        if (NowDir == Direction.Up)
-                            NowDir = Direction.Left;
-                        else if (NowDir == Direction.Right)
-                            NowDir = Direction.Up;
-                        else if (NowDir == Direction.Down)
-                            NowDir = Direction.Right;
-                        else
-                            NowDir = Direction.Down;
-
                         ActionQueue.RemoveAt(0);
-                        for (int i = Max[1] - 1; i >= 0; i++)
+                        for (int i = Max[1] - 1; i >= 0; i--)
                             ActionQueue.Insert(0, Actions[1][i]);
                         break;
                     case Command.F3:
-                        if (NowDir == Direction.Up)
-                            NowDir = Direction.Left;
-                        else if (NowDir == Direction.Right)
-                            NowDir = Direction.Up;
-                        else if (NowDir == Direction.Down)
-                            NowDir = Direction.Right;
-                        else
-                            NowDir = Direction.Down;
-
                         ActionQueue.RemoveAt(0);
-                        for (int i = Max[2] - 1; i >= 0; i++)
+                        for (int i = Max[2] - 1; i >= 0; i--)
                             ActionQueue.Insert(0, Actions[2][i]);
                         break;
                     case Command.F4:
-                        if (NowDir == Direction.Up)
-                            NowDir = Direction.Left;
-                        else if (NowDir == Direction.Right)
-                            NowDir = Direction.Up;
-                        else if (NowDir == Direction.Down)
-                            NowDir = Direction.Right;
-                        else
-                            NowDir = Direction.Down;
-
                         ActionQueue.RemoveAt(0);
-                        for (int i = Max[3] - 1; i >= 0; i++)
+                        for (int i = Max[3] - 1; i >= 0; i--)
                             ActionQueue.Insert(0, Actions[3][i]);
                         break;
                     case Command.F5:
-                        if (NowDir == Direction.Up)
-                            NowDir = Direction.Left;
-                        else if (NowDir == Direction.Right)
-                            NowDir = Direction.Up;
-                        else if (NowDir == Direction.Down)
-                            NowDir = Direction.Right;
-                        else
-                            NowDir = Direction.Down;
-
                         ActionQueue.RemoveAt(0);
-                        for (int i = Max[4] - 1; i >= 0; i++)
+                        for (int i = Max[4] - 1; i >= 0; i--)
                             ActionQueue.Insert(0, Actions[4][i]);
                         break;
                 }
-            else if (Act[0].color == Color.None)
+            else if (ActionQueue[0].color == Color.None)
                 Lose = true;
             else
                 ActionQueue.RemoveAt(0);
@@ -242,76 +199,14 @@ namespace RoboZZle_by_Mystezy.Classы
 
                 for (int i = 0; i < functions; i++)
                     Max[i] = int.Parse(MAS[i]);
-
-                /*for (int i = 0; i < functions; i++)
-                {
-                    line = reader.ReadLine();
-                    MAS = line.Split();
-                    Actions[i] = new Action[MAS.Length];
-                    for (int j = 0; j < MAS.Length; j++)
-                    {
-                        var MASS = MAS[j].Split('_');
-                        if (MASS[0] == "Null")
-                            Actions[i][j] = new Action(j);
-                        else
-                        {
-                            Actions[i][j] = new Action();
-                            Actions[i][j].id = j;
-                            switch (MASS[0])
-                            {
-                                case "Up":
-                                    Actions[i][j].command = Command.Up;
-                                    break;
-                                case "Right":
-                                    Actions[i][j].command = Command.Right;
-                                    break;
-                                case "Left":
-                                    Actions[i][j].command = Command.Left;
-                                    break;
-                                case "Default":
-                                    Actions[i][j].command = Command.Default;
-                                    break;
-                                case "F1":
-                                    Actions[i][j].command = Command.F1;
-                                    break;
-                                case "F2":
-                                    Actions[i][j].command = Command.F2;
-                                    break;
-                                case "F3":
-                                    Actions[i][j].command = Command.F3;
-                                    break;
-                                case "F4":
-                                    Actions[i][j].command = Command.F4;
-                                    break;
-                                case "F5":
-                                    Actions[i][j].command = Command.F5;
-                                    break;
-                            }
-
-                            switch (MASS[1])
-                            {
-                                case "Default":
-                                    Actions[i][j].color = Color.Default;
-                                    break;
-                                case "Red":
-                                    Actions[i][j].color = Color.Red;
-                                    break;
-                                case "Green":
-                                    Actions[i][j].color = Color.Green;
-                                    break;
-                                case "Blue":
-                                    Actions[i][j].color = Color.Blue;
-                                    break;
-                            }
-                        }
-                    }
-                }*/
             }
 
             Action NEW = new Action(Command.F1, Color.Default, 0);
             ActionQueue.Add(NEW);
 
             Lose = false;
+
+            stop = false;
         }
 
         public void NewGame()
@@ -321,6 +216,12 @@ namespace RoboZZle_by_Mystezy.Classы
 
             foreach (var el in Stars)
                 Stars[el.Key] = true;
+
+            Lose = false;
+            stop = false;
+
+            Action NEW = new Action(Command.F1, Color.Default, 0);
+            ActionQueue.Add(NEW);
         }
     }
 
@@ -329,6 +230,12 @@ namespace RoboZZle_by_Mystezy.Classы
         public Command command;
         public Color color;
         public int id;
+
+        public Action(Command comm, Color col)
+        {
+            command = comm;
+            color = col;
+        }
 
         public Action()
         {
