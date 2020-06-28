@@ -12,11 +12,13 @@
 
   <ItemGroup>
     <None Remove="Maps\Start.txt" />
+    <None Remove="Maps\UnrealTestMap.txt" />
     <None Remove="TextFile1.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Maps\Start.txt" />
+    <EmbeddedResource Include="Maps\UnrealTestMap.txt" />
   </ItemGroup>
 
   <ItemGroup>

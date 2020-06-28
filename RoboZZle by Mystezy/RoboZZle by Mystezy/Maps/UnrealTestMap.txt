@@ -1,0 +1,15 @@
+﻿N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 R_1 R_0 R_0 R_1 N_0 N_0 N_0
+N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 R_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 R_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 N_0 N_0 N_0 G_1 G_0 G_0 G_1 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 N_0 N_0 N_0 G_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 N_0 N_0 N_0 G_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 B_1 B_0 B_0 B_1 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 B_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+N_0 N_0 N_0 B_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+B_0 B_0 B_0 B_1 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0 N_0
+0 11
+Right
+4 4 3

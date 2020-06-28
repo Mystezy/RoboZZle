@@ -6,6 +6,7 @@ using System.Text;
 using Xamarin.Forms;
 using System.Reflection;
 using System.IO;
+using System.Linq;
 
 namespace RoboZZle_by_Mystezy.Classы
 {
@@ -33,14 +34,22 @@ namespace RoboZZle_by_Mystezy.Classы
 
         bool Lose;
 
-        public bool stop;
+        public bool End;
+
+        public bool Started;
+
+        public bool Stop;
 
         public void Execute()
         {
             if (DefaultField[NowPos.Y][NowPos.X] == ActionQueue[0].color || ActionQueue[0].color == Color.Default)
                 switch (ActionQueue[0].command)
                 {
+                    case Command.Null:
+                        ActionQueue.RemoveAt(0);
+                        break;
                     case Command.Default:
+                        ActionQueue.RemoveAt(0);
                         break;
                     case Command.Left:
                         if (NowDir == Direction.Up)
@@ -76,10 +85,19 @@ namespace RoboZZle_by_Mystezy.Classы
                         else
                             NowPos.X--;
 
-                        if (StartPos.X > 15 || StartPos.X < 0 || StartPos.Y > 11 || StartPos.Y < 0)
+                        if (NowPos.X > 15 || NowPos.X < 0 || NowPos.Y > 11 || NowPos.Y < 0)
                             Lose = true;
-                        else if (DefaultField[NowPos.Y][NowPos.X] == Color.None)
-                            Lose = true;
+                        else
+                        {
+                            if (DefaultField[NowPos.Y][NowPos.X] == Color.None)
+                                Lose = true;
+                        }
+
+                        Position pos = new Position();
+                        pos.X = NowPos.X;
+                        pos.Y = NowPos.Y;
+                        if (Stars.ContainsKey(pos))
+                            Stars[pos] = false;
 
                         ActionQueue.RemoveAt(0);
                         break;
@@ -108,6 +126,7 @@ namespace RoboZZle_by_Mystezy.Classы
                         for (int i = Max[4] - 1; i >= 0; i--)
                             ActionQueue.Insert(0, Actions[4][i]);
                         break;
+
                 }
             else if (ActionQueue[0].color == Color.None)
                 Lose = true;
@@ -123,6 +142,14 @@ namespace RoboZZle_by_Mystezy.Classы
                 return true;
             else
                 return false;
+        }
+
+        public bool CheckWin()
+        {
+            foreach (var el in Stars)
+                if (Stars[el.Key] == true)
+                    return false;
+            return true;
         }
 
         public Game(string Name)
@@ -205,8 +232,9 @@ namespace RoboZZle_by_Mystezy.Classы
             ActionQueue.Add(NEW);
 
             Lose = false;
-
-            stop = false;
+            End = false;
+            Started = false;
+            Stop = false;
         }
 
         public void NewGame()
@@ -214,12 +242,15 @@ namespace RoboZZle_by_Mystezy.Classы
             NowPos = StartPos;
             NowDir = StartDir;
 
-            foreach (var el in Stars)
-                Stars[el.Key] = true;
+            foreach (var el in Stars.Keys.ToArray())
+                Stars[el] = true;
 
             Lose = false;
-            stop = false;
+            End = false;
+            Started = false;
+            Stop = false;
 
+            ActionQueue.Clear();
             Action NEW = new Action(Command.F1, Color.Default, 0);
             ActionQueue.Add(NEW);
         }
